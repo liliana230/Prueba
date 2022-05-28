@@ -20,6 +20,35 @@ namespace Prueba.Controller
             //Creacion de tablas de base de datos
             dbase.CreateTableAsync<Empleado>();
         }
-
+        //Metodos CRUD son: Create, Read, Update y Delete
+        //Metodo Crear
+        public Task<int> EmpleSave(Empleado emple)
+        {
+            if (emple.id != 0)
+            {
+                return dbase.UpdateAsync(emple); //Update
+            }
+            else
+            {
+                return dbase.InsertAsync(emple); //Insert
+            }
+        }
+        //Read
+        public Task<List<Empleado>> ObtenerListaEmple()
+        {
+            return dbase.Table<Empleado>().ToListAsync();
+        }
+        //Read v2
+        public Task<Empleado> ObtenerEmple(int pid)
+        {
+            return dbase.Table<Empleado>()
+                .Where(i => i.id == pid)
+                .FirstOrDefaultAsync();
+        }
+        //Delete
+        public Task<int> BorrarEmple(Empleado emple)
+        {
+            return dbase.DeleteAsync(emple);
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace Prueba
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage (new Main());
+            MainPage = new NavigationPage (new Inicio());
         }
 
         protected override void OnStart()

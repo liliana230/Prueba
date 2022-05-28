@@ -2,23 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prueba.Views.EmplePage">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ir a Lista de Empleados" x:Name="toolmenu2"
+                     Order="Primary" 
+                     Priority="0" 
+                     Clicked="toolmenu2_Clicked">
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Frame Opacity="0.3" Padding="24" CornerRadius="0">
-                    <Label Opacity="1.0" Text="BIENVENIDO!" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
+                <Frame BackgroundColor="DarkSeaGreen" Padding="5" CornerRadius="0">
+                    <Label Opacity="1.0" Text="BIENVENIDO!" HorizontalTextAlignment="Center" TextColor="Black" FontSize="25"/>
                 </Frame>
-                <Label TextColor="White" Text="ID" FontSize="Title"  Padding="30,10,30,10"/>
-                <Entry Placeholder="INGRESE EL ID!" Keyboard="Text" x:Name="txtid" Margin="10,10,10,10"/>
+                <Label  Text="ID" FontSize="Medium" TextColor="Black" Padding="30,0,30,0"/>
+                <Entry Placeholder="Id" Keyboard="Text" x:Name="txtid" Margin="15,0,15,0"/>
 
-                <Label TextColor="White" Text="Nombre" FontSize="Title"  Padding="30,10,30,10"/>
-                <Entry Placeholder="INGRESE EL NOMBRE!" Keyboard="Text" x:Name="txtnombre" Margin="10,10,10,10"/>
+                <Label  Text="Nombre" FontSize="Medium" TextColor="Black"  Padding="30,0,30,0"/>
+                <Entry Placeholder="Nombre" Keyboard="Text" x:Name="txtnombre" Margin="15,0,15,0"/>
 
-                <Label TextColor="White" Text="Edad" FontSize="Title"  Padding="30,10,30,10"/>
-                <Entry Placeholder="INGRESE LA EDAD!" Keyboard="Numeric" x:Name="txtedad" Margin="10,10,10,10"/>
+                <Label Text="Edad" FontSize="Medium" TextColor="Black" Padding="30,0,30,0"/>
+                <Entry Placeholder="Edad" Keyboard="Numeric" x:Name="txtedad" Margin="15,0,15,0"/>
 
-                <Label TextColor="White" Text="Genero" FontSize="Title"  Padding="30,10,30,10"/>
-                <Picker Title="Seleccione su Genero" TitleColor="Coral" x:Name="genero" Margin="10,10,10,10">
+                <Label  Text="Genero" FontSize="Medium"  TextColor="Black" Padding="30,0,30,0"/>
+                <Picker Title="Seleccione Genero" TitleColor="Blue" x:Name="genero" Margin="15,0,15,0">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Masculino</x:String>
@@ -28,11 +38,11 @@
                     </Picker.ItemsSource>
                 </Picker>
 
-                <Label TextColor="White" Text="Fecha" FontSize="Title"  Padding="30,10,30,10"/>
-                <DatePicker Format="D" VerticalOptions="CenterAndExpand" x:Name="fecha" Margin="10,10,10,10"/>
+                <Label TextColor="Black" Text="Fecha" FontSize="Medium"  Padding="30,0,30,0"/>
+                <DatePicker Format="D" VerticalOptions="Start" x:Name="fecha" Margin="15,0,15,0"/>
 
-                <Button  x:Name="btngregar" Text="AGREGAR" FontSize="Title" Clicked="btngregar_Clicked" TextColor="Black" BackgroundColor="GreenYellow" Margin="50,20,50,20"/>
-                <Button  x:Name="btneliminar" Text="ELIMINAR" FontSize="Title" Clicked="btneliminar_Clicked" TextColor="White" BackgroundColor="DimGray" Margin="50,20,50,20"/>
+                <Button  x:Name="btngregar" Text="Agregar" FontSize="Subtitle" Clicked="btngregar_Clicked" TextColor="Black" BackgroundColor="DarkSeaGreen" Margin="60,0,60,0"/>
+                <Button  x:Name="btneliminar" Text="Eliminar" FontSize="Subtitle" Clicked="btneliminar_Clicked" TextColor="Black" BackgroundColor="IndianRed" Margin="60,0,60,0"/>
 
             </StackLayout>
         </ScrollView>

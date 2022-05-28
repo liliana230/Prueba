@@ -17,9 +17,17 @@ namespace Prueba.Views
         public EmplePage()
         {
             InitializeComponent();
+            
         }
-         private async void btngregar_Clicked(object sender, EventArgs e)
+
+        private async void toolmenu2_Clicked(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new PagePrincipal());
+        }
+
+        private async void btngregar_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PagePrincipal());
             var emple = new Empleado
             {
                 id = 0,
@@ -28,14 +36,19 @@ namespace Prueba.Views
                 genero = genero.SelectedItem.ToString(),
                 fechaingreso = fecha.Date.ToString()
             };
+
+
             var result = await App.DBase.EmpleSave(emple);
+
             if (result > 0)
             {
-                await DisplayAlert("INFO", "Empleado Ingresado", "OK");
+                await DisplayAlert("INFORMACION", "Empleado Adicionado", "OK");
             }
             else {
-                await DisplayAlert("ALERTA", "Empleado NO INGRESADO", "NO");
+                await DisplayAlert("ALERTA", "ERROR: Empleado NO Adicionado", "NO");
             }
+
+            
         }
 
         private void btneliminar_Clicked(object sender, EventArgs e)

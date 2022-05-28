@@ -11,22 +11,18 @@ using Xamarin.Forms.Xaml;
 namespace Prueba.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Main : ContentPage
+    public partial class PagePrincipal : ContentPage
     {
-        public Main()
+        public PagePrincipal()
         {
             InitializeComponent();
         }
 
-        private async void toolmenu1_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new EmplePage());
-        }
 
         private async void ListaEmpleados_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var emple = (Empleado)e.Item;
-            await DisplayAlert("INFO", "Empleado Seleccionado " + emple.nombre, "OK");
+            await DisplayAlert("INFORMACION", "Empleado Seleccionado " + emple.nombre, "OK");
             await Navigation.PushAsync(new EmpleView(emple.id, emple.nombre, emple.edad, emple.genero, emple.fechaingreso));
         }
         protected async override void OnAppearing()
